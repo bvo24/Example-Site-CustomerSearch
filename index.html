@@ -57,54 +57,57 @@
     </nav>
 
     <div class="container">
-        <!-- Dashboard Section -->
-        <div id="dashboard" class="section">
-            <h2>Customer Information</h2>
+        <h2 class="section-title" onclick="toggleSection('customer-info')">Customer Information</h2>
+        <div id="customer-info" class="dropdown-content">
             <div class="customer-info">
                 <div>
                     <div class="info-label">Name:</div>
                     <div class="info-value">John Doe</div>
-
+    
                     <div class="info-label">Customer ID:</div>
                     <div class="info-value">CUST123456</div>
-
+    
                     <div class="info-label">Phone Number:</div>
                     <div class="info-value">(555) 555-1234</div>
-
+    
                     <div class="info-label">Email:</div>
                     <div class="info-value">johndoe@email.com</div>
                 </div>
                 <div>
                     <div class="info-label">Address:</div>
                     <div class="info-value">123 Main St, Anytown, VA 12345</div>
-
+    
                     <div class="info-label">Account Status:</div>
                     <div class="info-value">Active</div>
-
+    
                     <div class="info-label">Preferred Contact:</div>
                     <div class="info-value">Email</div>
                 </div>
             </div>
-
-            <h2>Account Details</h2>
+        </div>
+    
+        <h2 class="section-title" onclick="toggleSection('account-details')">Account Details</h2>
+        <div id="account-details" class="dropdown-content">
             <div class="account-details">
                 <div>
                     <div class="info-label">Checking Account:</div>
                     <div class="info-value">$5,120.75</div>
-
+    
                     <div class="info-label">Savings Account:</div>
                     <div class="info-value">$12,340.50</div>
                 </div>
                 <div>
                     <div class="info-label">Credit Card Balance:</div>
                     <div class="info-value">$850.25</div>
-
+    
                     <div class="info-label">Loan Amount:</div>
                     <div class="info-value">$15,000.00</div>
                 </div>
             </div>
-
-            <h2>Interaction Log</h2>
+        </div>
+    
+        <h2 class="section-title" onclick="toggleSection('interaction-log')">Interaction Log</h2>
+        <div id="interaction-log" class="dropdown-content">
             <div class="interaction-form">
                 <label for="interaction-type">Interaction Type</label>
                 <select id="interaction-type">
@@ -113,13 +116,15 @@
                     <option value="dispute">Dispute</option>
                     <option value="support">Customer Support</option>
                 </select>
-
+    
                 <label for="interaction-notes">Interaction Notes</label>
                 <textarea id="interaction-notes" rows="5" placeholder="Enter notes from the interaction..."></textarea>
-
+    
                 <button type="submit">Submit Interaction</button>
             </div>
         </div>
+    </div>
+    
 
         <!-- Customer Search Section -->
         <div id="customer-search" class="section" style="display: none;">

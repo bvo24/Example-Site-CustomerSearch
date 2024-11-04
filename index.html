@@ -4,66 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer Service Portal</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        .section-title {
+            font-size: 1.5em;
+            color: #333;
+            cursor: pointer;
+            margin-top: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        .dropdown-content {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .info-label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .info-value {
+            margin-bottom: 10px;
+        }
+        .interaction-form label,
+        .interaction-form select,
+        .interaction-form textarea,
+        .interaction-form button {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
 
 <div class="container">
     <h2 class="section-title" onclick="toggleSection('customer-info')">Customer Information</h2>
     <div id="customer-info" class="dropdown-content">
-        <div class="info-label">Name:</div>
-        <div class="info-value">John Doe</div>
-        
-        <div class="info-label">Customer ID:</div>
-        <div class="info-value">CUST123456</div>
-        
-        <div class="info-label">Phone Number:</div>
-        <div class="info-value">(555) 555-1234</div>
-        
-        <div class="info-label">Email:</div>
-        <div class="info-value">johndoe@email.com</div>
-        
-        <div class="info-label">Address:</div>
-        <div class="info-value">123 Main St, Anytown, VA 12345</div>
-        
-        <div class="info-label">Account Status:</div>
-        <div class="info-value">Active</div>
-        
-        <div class="info-label">Preferred Contact:</div>
-        <div class="info-value">Email</div>
+        <!-- Customer information fields -->
     </div>
 
     <h2 class="section-title" onclick="toggleSection('account-details')">Account Details</h2>
     <div id="account-details" class="dropdown-content">
-        <div class="info-label">Checking Account:</div>
-        <div class="info-value">$5,120.75</div>
-        
-        <div class="info-label">Savings Account:</div>
-        <div class="info-value">$12,340.50</div>
-        
-        <div class="info-label">Credit Card Balance:</div>
-        <div class="info-value">$850.25</div>
-        
-        <div class="info-label">Loan Amount:</div>
-        <div class="info-value">$15,000.00</div>
+        <!-- Account details fields -->
     </div>
 
     <h2 class="section-title" onclick="toggleSection('interaction-log')">Interaction Log</h2>
     <div id="interaction-log" class="dropdown-content">
-        <div class="interaction-form">
-            <label for="interaction-type">Interaction Type</label>
-            <select id="interaction-type">
-                <option value="account-update">Account Update</option>
-                <option value="transaction-inquiry">Transaction Inquiry</option>
-                <option value="dispute">Dispute</option>
-                <option value="support">Customer Support</option>
-            </select>
-
-            <label for="interaction-notes">Interaction Notes</label>
-            <textarea id="interaction-notes" rows="5" placeholder="Enter notes from the interaction..."></textarea>
-
-            <button type="submit">Submit Interaction</button>
-        </div>
+        <!-- Interaction log form -->
     </div>
 
     <h2 class="section-title" onclick="toggleSection('customer-search')">Customer Search</h2>
@@ -73,26 +70,17 @@
             <input type="text" id="search-input" placeholder="Enter search term" required>
             <button type="submit">Search</button>
         </form>
-        <div id="search-results">
-            <p>No search results yet.</p>
-        </div>
+        <div id="search-results"></div>
     </div>
 
     <h2 class="section-title" onclick="toggleSection('recent-interactions')">Recent Interactions</h2>
     <div id="recent-interactions" class="dropdown-content">
-        <p>1. Transaction Inquiry - 10/12/2024 - "Inquired about recent transaction history."</p>
-        <p>2. Account Update - 10/09/2024 - "Updated contact information."</p>
-        <p>3. Dispute - 09/28/2024 - "Dispute for a charge on 09/15 resolved."</p>
+        <p>Recent customer interactions will be displayed here.</p>
     </div>
     
     <h2 class="section-title" onclick="toggleSection('support')">Support</h2>
     <div id="support" class="dropdown-content">
-        <p>For assistance, please contact our support team:</p>
-        <ul>
-            <li>Email: support@company.com</li>
-            <li>Phone: (555) 555-6789</li>
-            <li>Live Chat: Available 9am - 6pm ET</li>
-        </ul>
+        <p>Support resources and contact information.</p>
     </div>
 </div>
 
@@ -100,6 +88,22 @@
     <p>&copy; 2024 Capital One. All rights reserved.</p>
 </footer>
 
-<script src="script.js"></script>
+<!-- JavaScript for toggling dropdown content and search functionality -->
+<script>
+    function toggleSection(id) {
+        var section = document.getElementById(id);
+        section.style.display = (section.style.display === "none" || section.style.display === "") ? "block" : "none";
+    }
+
+    function searchCustomer(event) {
+        event.preventDefault();
+        var searchInput = document.getElementById("search-input").value;
+        var searchResults = document.getElementById("search-results");
+
+        // Placeholder search results
+        searchResults.innerHTML = "<p>Searching for: " + searchInput + "</p>";
+    }
+</script>
+
 </body>
 </html>
